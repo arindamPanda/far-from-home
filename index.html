@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Far From Home · Arindam Panda</title>
+  <meta name="description" content="Travel photography and a journal of where the pictures came from, by Arindam Panda.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="ds/styles.css">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <a class="skip" href="#app">Skip to content</a>
+
+  <header class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="#/" data-route="home">Far From Home</a>
+      <a href="#/about" data-route="about">About</a>
+      <a href="#/photography" data-route="photography">Photography</a>
+      <a href="#/journal" data-route="journal">Journal</a>
+      <a href="#/contact" data-route="contact">Contact</a>
+      <span class="nav-spacer" aria-hidden="true"></span>
+      <a class="nav-main" href="https://arindampanda.github.io/website/">Main site &nearr;</a>
+    </nav>
+  </header>
+
+  <!-- Every view (front page, Photography, Journal, an entry, About, Contact)
+       is rendered into this element by site.js from the data in content.js. -->
+  <main id="app" class="page" aria-live="polite"></main>
+
+  <footer class="wrap footer">
+    <div class="rule-1 rule-soft"></div>
+    <div class="footer-row">
+      <span class="text-muted">&copy; <span id="footer-year"></span> <span id="footer-name"></span></span>
+      <a href="#/photography">Photography</a>
+      <a href="#/journal">Journal</a>
+      <a href="#/contact">Contact</a>
+      <a href="https://arindampanda.github.io/website/" class="footer-main">Main site</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox: a full-bleed sheet of paper with one photograph on it. -->
+  <div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photograph">
+    <div class="lightbox-head">
+      <span id="lb-title"></span>
+      <span id="lb-meta" class="text-muted"></span>
+      <button class="btn btn-secondary lightbox-close" type="button" id="lb-close">Close</button>
+    </div>
+    <div class="lightbox-stage" id="lb-stage">
+      <figure class="frame lightbox-frame" id="lb-frame">
+        <div class="frame-box" id="lb-box"><img id="lb-img" alt=""><span class="slot-label" id="lb-slot"></span></div>
+      </figure>
+    </div>
+    <div class="lightbox-foot">
+      <button class="btn btn-ghost" type="button" id="lb-prev">&larr; Previous</button>
+      <button class="btn btn-ghost" type="button" id="lb-next">Next &rarr;</button>
+      <span class="text-muted lightbox-count" id="lb-count"></span>
+    </div>
+  </div>
+
+  <script src="content.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>
