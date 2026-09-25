@@ -148,35 +148,86 @@ const POSTS = [
   { id: 'regensburg', title: 'Spring meeting on the Danube', date: 'March 2025', place: 'Regensburg & Munich',
     cover: 'images/posts/regensburg.jpg', ar: '4/3',
     excerpt: 'Mumbai to Doha to Regensburg for the DPG Spring Meeting: the old stone bridge over the Danube, the Walhalla above it, and Nymphenburg Palace in Munich on the way home.',
-    paras: [] },
+    paras: [
+      'The DPG Spring Meeting put us in a town whose old quarter, the bridge included, has been a UNESCO World Heritage Site since 2006. Work on the Stone Bridge began in 1135, which makes it the oldest surviving bridge in Germany; it runs about three hundred metres over the Danube on sixteen arches and was the only dependable crossing here for close to eight hundred years, until 1935. Halfway across, a small stone figure called the Bruckmandl sits on the parapet looking towards the cathedral. Local legend has the bridge builder and the cathedral builder racing each other, with the devil bargained into helping and then cheated of his payment. The figure there now went up in 1854 and is the third of its line, the first having been destroyed in 1579. Upriver at Donaustauf stands the Walhalla, built for Ludwig I of Bavaria by Leo von Klenze between 1830 and 1842, shaped after the Parthenon and named after the hall of the slain in Norse myth.',
+    ],
+    sources: [
+      { label: 'Regensburg Tourism: the Stone Bridge', url: 'https://tourismus.regensburg.de/en/experience-discover/sightseeing-unesco-world-heritage/stone-bridge' },
+      { label: 'Regensburg Tourism: the Bruckmandl and its legend', url: 'https://tourismus.regensburg.de/en/special-themes/attractions/regensburgs-originals/stone-bridge.html' },
+      { label: 'Bavarian Palace Department: Walhalla', url: 'https://www.schloesser.bayern.de/deutsch/schloss/objekte/walhalla.htm' },
+    ] },
   { id: 'raisen', title: 'Raisen Fort', date: 'August 2024', place: 'Raisen, Madhya Pradesh',
     cover: 'images/posts/raisen.jpg', ar: '3/4',
     excerpt: 'The hill fort above Raisen in the monsoon: gateways, ramparts and wet stone steps.',
-    paras: [] },
+    paras: [
+      'The fort on the hill above Raisen was held in 1542 by Puran Mal when Sher Shah Suri laid siege to it, and the siege ran about six months into January 1543. Sher Shah\'s guns eventually forced terms, and he gave a written assurance that Puran Mal and his people would suffer no injury in person or property, on which they came out of the fort. What happened next is the part the chronicles disagree about. Sher Shah did withdraw as agreed, but petitioners from Chanderi then came to him with accusations against Puran Mal, and he sent troops after the departing party. Abbas Sarwani records that Puran Mal killed his own wife and ordered his captains to do the same before the Afghans fell on them; Badayuni puts the dead at around ten thousand. Raisen district also holds two UNESCO World Heritage sites, the stupas at Sanchi and the painted rock shelters at Bhimbetka.',
+    ],
+    sources: [
+      { label: 'Siege of Raisen, 1542 to 1543', url: 'https://en.wikipedia.org/wiki/Siege_of_Raisen_(1542%E2%80%931543)' },
+      { label: 'Puran Mal of Raisen', url: 'https://en.wikipedia.org/wiki/Puran_Mal' },
+      { label: 'Madhya Pradesh Tourism: the state\'s UNESCO World Heritage sites', url: 'https://www.mptourism.com/UNESCO-world-heritage-sites-madhya-pradesh.html' },
+    ] },
   { id: 'tamil-nadu', title: 'Temple towns of the south', date: 'December 2023', place: 'Tamil Nadu',
     cover: 'images/posts/tamil-nadu.jpg', ar: '3/4',
     excerpt: 'Chennai, then the great temples at Thanjavur, Tiruchirappalli, Madurai and Rameswaram, out to Dhanushkodi where the Bay of Bengal meets the Indian Ocean, and back by way of Mahabalipuram.',
-    paras: [] },
+    paras: [
+      'The Brihadeeswara temple at Thanjavur was completed in 1010 under Rajaraja I and is the oldest of the three Great Living Chola Temples, inscribed by UNESCO in 1987 and extended in 2004. Its tower rises about 216 feet, and the cupola at the top sits on a single granite block weighing some eighty tonnes. Guides here will often tell you the tower casts no shadow on the ground at noon. It does: around midday the shadow falls on the temple\'s own plinth and walls rather than on the open ground beyond, which is a matter of how the courtyard was laid out rather than anything stranger. At the other end of the trip, Dhanushkodi is empty for a reason. A cyclone crossed on the night of 22 to 23 December 1964 with a storm surge over seven metres, took the Pamban to Dhanushkodi passenger train with about two hundred people aboard, killed at least eight hundred in the town, and the town was never rebuilt.',
+    ],
+    sources: [
+      { label: 'UNESCO World Heritage Centre: Great Living Chola Temples', url: 'https://whc.unesco.org/en/list/250/' },
+      { label: 'Brihadisvara Temple, Thanjavur', url: 'https://en.wikipedia.org/wiki/Brihadisvara_Temple,_Thanjavur' },
+      { label: 'The 1964 Rameswaram cyclone', url: 'https://en.wikipedia.org/wiki/1964_Rameswaram_cyclone' },
+      { label: 'On checking the shadowless claim at Thanjavur', url: 'https://anuragiyer.wordpress.com/2014/09/20/the-truth-behind-the-shadowless-big-temple/' },
+    ] },
   { id: 'jabalpur', title: 'Marble rocks at Bhedaghat', date: 'December 2022', place: 'Jabalpur',
     cover: 'images/posts/jabalpur.jpg', ar: '4/3',
     excerpt: 'The Rani Durgavati Museum, the Balancing Rock, Madan Mahal Fort, and the Narmada between the marble cliffs of Bhedaghat.',
-    paras: [] },
+    paras: [
+      'The Narmada runs for about three kilometres through a gorge of marble and dolomite at Bhedaghat, dropping into it at the Dhuandhar falls, and at one point, Bandar Kodini, the walls close in far enough that monkeys are said to cross overhead. The geology here did more than make a view. In 1828 William Sleeman collected a fossil from the Lameta beds nearby that became the holotype of Titanosaurus indicus, the first dinosaur named from India. India put Bhedaghat and Lametaghat on the UNESCO World Heritage tentative list in 2021 as a natural site, under criteria (vii) and (viii). On the hill above the river stands the Chausath Yogini temple, built early in the eleventh century under the Kalachuri king Yuvaraja II. It is the largest of the circular yogini temples, and although chausath means sixty-four, its ring of cells numbers eighty-one.',
+    ],
+    sources: [
+      { label: 'UNESCO tentative list: Bhedaghat and Lametaghat in the Narmada Valley', url: 'https://whc.unesco.org/en/tentativelists/6531' },
+      { label: 'Chausath Yogini Temple, Bhedaghat', url: 'https://en.wikipedia.org/wiki/Chausath_Yogini_Temple,_Bhedaghat' },
+    ] },
   { id: 'ranthambore', title: 'Ranthambore', date: 'October 2022', place: 'Ranthambore, Rajasthan',
     cover: 'images/posts/ranthambore.jpg', ar: '16/9',
     excerpt: 'A safari in Ranthambore National Park.',
-    paras: [] },
+    paras: [
+      'The park has a UNESCO World Heritage Site inside it. Ranthambore Fort, on the hill in the middle of the reserve, is one of the six Hill Forts of Rajasthan inscribed together in 2013. Within the fort is the Trinetra Ganesh temple, which has a postal habit attached to it: people send the first invitation for a wedding or a house blessing to Ganesha here by post, and thousands of cards arrive every year, some from outside India. The priests read them out at the shrine. Temple tradition puts its founding around 1300 under Hammir Dev Chauhan, though that belongs to the temple\'s own tradition rather than to established record.',
+    ],
+    sources: [
+      { label: 'UNESCO World Heritage Centre: Hill Forts of Rajasthan', url: 'https://whc.unesco.org/en/list/247' },
+      { label: 'Outlook Traveller: the wedding invitations sent to Trinetra Ganesh', url: 'https://www.outlooktraveller.com/experiences/places-of-interest/ganesh-chaturthi-2026-why-devotees-send-wedding-invitations-to-ranthambores-trinetra-ganesh-temple' },
+    ] },
   { id: 'hamta', title: 'Four days over Hamta Pass', date: 'June 2022', place: 'Himachal Pradesh',
     cover: 'images/posts/hamta.jpg', ar: '4/3',
     excerpt: 'The trek from the Kullu side over Hamta Pass into Lahaul: a waterfall on the first day, snowfields on the third, cairns and wildflowers on the way down.',
-    paras: [] },
+    paras: [
+      'Hamta Pass sits at about 14,100 feet, or 4,270 metres, and links the Kullu valley with the Chandra valley in Lahaul. It takes its name from Hamta village, below Sethan. This was a working route before it was a trekking one: shepherds from the lower hills bring flocks up through it in summer for the high grassland. The appeal of the crossing is how fast the ground changes. You start among pine and wildflowers on the Kullu side and come down a few days later into the dry, bare country of Lahaul, with the pass itself the line between the two.',
+    ],
+    sources: [
+      { label: 'Hamta Pass', url: 'https://en.wikipedia.org/wiki/Hamta_Pass' },
+    ] },
   { id: 'manali', title: 'Manali', date: 'June 2022', place: 'Manali, Himachal Pradesh',
     cover: 'images/posts/manali.jpg', ar: '4/3',
     excerpt: 'Before and after the trek: the Beas valley, the deodars, and the Hadimba Temple.',
-    paras: [] },
+    paras: [
+      'The Hidimba Devi temple stands in the Dhungri cedars above Manali and was built in 1553 under Maharaja Bahadur Singh. It is dedicated to Hidimba, the rakshasi who marries Bhima in the Mahabharata, which is unusual in itself, and what is worshipped inside is not an image but a rock in the cave the temple was raised around. The building is a four tiered wooden pagoda under a brass cone, with carved doorways. A story told locally holds that the king had the builder\'s right hand cut off so that nothing like it could be built again. Historians treat that as folklore rather than record, but you will hear it at the gate.',
+    ],
+    sources: [
+      { label: 'Hidimba Devi Temple', url: 'https://en.wikipedia.org/wiki/Hidimba_Devi_Temple' },
+      { label: 'Ministry of Tourism, Incredible India: Hidimba Temple, Manali', url: 'https://www.incredibleindia.gov.in/en/himachal-pradesh/manali/hidimba-temple' },
+    ] },
   { id: 'churna', title: 'Churna safari', date: 'December 2021', place: 'Satpura Tiger Reserve',
     cover: 'images/posts/churna.jpg', ar: '3/2',
     excerpt: 'A winter safari into the Churna range of Satpura Tiger Reserve.',
-    paras: [] },
+    paras: [
+      'Satpura became a national park in 1981 and a tiger reserve in 1999, and it does one thing no other Indian park does: the official tourism account describes it as the only national park in the country where visitors may walk on foot through the core forest, with armed guards and a naturalist. You cross the Denwa by boat first and then walk in single file. Canoe and boat trips run on the river and its backwaters as well, so the reserve can be seen from the water as much as from a vehicle. Churna is one of its zones, well inside the forest. In 2021 India added Satpura Tiger Reserve to the UNESCO World Heritage tentative list as a natural site.',
+    ],
+    sources: [
+      { label: 'Ministry of Tourism, Incredible India: Satpura National Park', url: 'https://www.incredibleindia.gov.in/en/madhya-pradesh/pachmarhi/satpura-national-park' },
+      { label: 'The Week: Satpura and Bhedaghat added to the UNESCO tentative list', url: 'https://www.theweek.in/news/india/2021/05/19/satpura-tiger-reserve-bhedaghat-lamheta-ghat-of-mp-in-unesco-world-heritage-tentative-list.html' },
+    ] },
 ];
 
 const ABOUT = {
