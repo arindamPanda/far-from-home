@@ -208,16 +208,6 @@ const POSTS = [
     sources: [
       { label: 'Hamta Pass', url: 'https://en.wikipedia.org/wiki/Hamta_Pass' },
     ] },
-  { id: 'manali', title: 'Manali', date: 'June 2022', place: 'Manali, Himachal Pradesh',
-    cover: 'images/posts/manali.jpg', ar: '4/3',
-    excerpt: 'Before and after the trek: the Beas valley, the deodars, and the Hadimba Temple.',
-    paras: [
-      'The Hidimba Devi temple stands in the Dhungri cedars above Manali and was built in 1553 under Maharaja Bahadur Singh. It is dedicated to Hidimba, the rakshasi who marries Bhima in the Mahabharata, which is unusual in itself, and what is worshipped inside is not an image but a rock in the cave the temple was raised around. The building is a four tiered wooden pagoda under a brass cone, with carved doorways. A story told locally holds that the king had the builder\'s right hand cut off so that nothing like it could be built again. Historians treat that as folklore rather than record, but you will hear it at the gate.',
-    ],
-    sources: [
-      { label: 'Hidimba Devi Temple', url: 'https://en.wikipedia.org/wiki/Hidimba_Devi_Temple' },
-      { label: 'Ministry of Tourism, Incredible India: Hidimba Temple, Manali', url: 'https://www.incredibleindia.gov.in/en/himachal-pradesh/manali/hidimba-temple' },
-    ] },
   { id: 'churna', title: 'Churna safari', date: 'December 2021', place: 'Satpura Tiger Reserve',
     cover: 'images/posts/churna.jpg', ar: '3/2',
     excerpt: 'A winter safari into the Churna range of Satpura Tiger Reserve.',
