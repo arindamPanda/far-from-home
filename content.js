@@ -23,7 +23,7 @@
 
 const SITE = {
   brand: 'Far From Home',   // the site's name, top-left and in the browser tab
-  name: 'Arindam Panda',
+  name: 'Arindam',       // the byline, and the copyright line in the footer
   tagline: 'Travel & photography',
   since: '2017',
   // Shown in the dateline strip under the masthead. Leave '' to hide.
@@ -56,7 +56,7 @@ const YEARS = [
   { label: '2025', note: 'Orchha and Jhansi in September, Regensburg and Munich in March.', photos: [
     { title: 'Chhatri, reflected', place: 'Orchha', src: 'images/2025/orchha-chhatri-pool.jpg', ar: '3/4' },
     { title: 'The chhatris of the Bundela kings', place: 'Orchha', src: 'images/2025/orchha-chhatris.jpg', ar: '3/4' },
-    { title: 'Cenotaph above the Betwa', place: 'Orchha', src: 'images/2025/orchha-betwa.jpg', ar: '89/100' },
+    { title: 'Chhatri above the Betwa', place: 'Orchha', src: 'images/2025/orchha-betwa.jpg', ar: '89/100' },
     { title: 'Raja Mahal from the Chaturbhuj Temple', place: 'Orchha', src: 'images/2025/orchha-raja-mahal.jpg', ar: '4/3' },
     { title: 'The Chaturbhuj Temple from the Raja Mahal', place: 'Orchha', src: 'images/2025/orchha-from-raja-mahal.jpg', ar: '4/3' },
     { title: 'Corridor, Raja Mahal', place: 'Orchha', src: 'images/2025/orchha-corridor.jpg', ar: '3/4' },
@@ -133,7 +133,7 @@ const YEARS = [
 
 /* Journal entries, newest first. The first one is the front-page lead. */
 const POSTS = [
-  { id: 'orchha', title: 'Cenotaphs on the Betwa', date: 'September 2025', place: 'Orchha & Jhansi',
+  { id: 'orchha', title: 'The chhatris of Orchha', date: 'September 2025', place: 'Orchha & Jhansi',
     cover: 'images/2025/orchha-chhatris.jpg', ar: '3/4',
     excerpt: 'Rani Mahal in Jhansi on the way in, then Orchha: the Raja Mahal, the Chaturbhuj Temple seen from its terraces, and the chhatris of the Bundela kings along the river.',
     paras: [] },
