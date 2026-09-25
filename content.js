@@ -24,10 +24,7 @@
 const SITE = {
   brand: 'Far From Home',   // the site's name, top-left and in the browser tab
   name: 'Arindam',       // the byline, and the copyright line in the footer
-  tagline: 'Travel & photography',
-  since: '2017',
-  // Shown in the dateline strip under the masthead. Leave '' to hide.
-  place: '',
+  tagline: 'Travel & photography',   // the left half of the masthead strip
   // Where the "Main site" links point (the research site, a separate site
   // now, so this is its full URL).
   mainSite: 'https://arindampanda.github.io/website/',

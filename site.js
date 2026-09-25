@@ -72,16 +72,11 @@
     const strip = gallery
       ? ALL.filter((p) => p.year === 'Frames')
       : [0, 1, 2, 3].map((i) => ALL[Math.min(ALL.length - 1, i * stride + 2)]).filter(Boolean);
-    const weekday = new Date().toLocaleDateString('en-GB', { weekday: 'long' });
-    const place = SITE.place ? `${esc(SITE.place)} · ` : '';
-
     return `
       <div class="wrap">
         <div class="rule-3" style="margin-top:4px"></div>
         <div class="dateline">
-          <span>Vol. I</span>
-          <span class="text-muted">${place}${esc(weekday)}</span>
-          <span class="text-muted">${esc(SITE.tagline)}, ${esc(SITE.since)} onwards</span>
+          <span>${esc(SITE.tagline)}</span>
           <span class="byline">Photographs by ${esc(SITE.name)}</span>
         </div>
         <div class="rule-1"></div>
