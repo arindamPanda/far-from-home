@@ -91,7 +91,7 @@
             ${lead ? `
             <div class="kicker">Lead entry · ${esc(lead.place)}, ${esc(lead.date)}</div>
             <h1 class="headline">${esc(lead.title)}</h1>
-            ${frame({ title: lead.title, place: lead.place, src: lead.cover }, { href: `#/journal/${lead.id}` })}
+            ${frame({ title: lead.title, place: lead.place, src: lead.cover, ar: lead.ar }, { href: `#/journal/${lead.id}` })}
             <div class="front-intro">
               <p>${esc(lead.excerpt)}</p>
               <p><a href="#/journal/${esc(lead.id)}" class="link-plain">Read the entry &rarr;</a></p>
@@ -171,7 +171,7 @@
         <div class="posts">
           ${POSTS.map((post) => `
           <article class="post-card">
-            ${frame({ title: post.title, place: post.place, src: post.cover }, { href: `#/journal/${post.id}` })}
+            ${frame({ title: post.title, place: post.place, src: post.cover, ar: post.ar }, { href: `#/journal/${post.id}` })}
             <div>
               <div class="kicker">${esc(post.date)} · ${esc(post.place)}</div>
               <h2><a href="#/journal/${esc(post.id)}">${esc(post.title)}</a></h2>
@@ -189,7 +189,7 @@
     const next = POSTS[i + 1];
     const prev = POSTS[i - 1];
     const body = post.paras.length ? post.paras : [post.excerpt];
-    const cover = { title: post.title, place: post.place, src: post.cover, ar: '3/2', year: postYear(post) };
+    const cover = { title: post.title, place: post.place, src: post.cover, ar: post.ar || '3/2', year: postYear(post) };
     return `
       <div class="wrap page-head">
         <article class="entry">
@@ -219,7 +219,7 @@
             ${ABOUT.facts.map(([k, v]) => `<dt class="text-muted">${esc(k)}</dt><dd>${v === 'links' ? social() : esc(v)}</dd>`).join('')}
           </dl>
         </div>
-        ${frame({ title: `${SITE.name}`, place: 'portrait', src: ABOUT.portrait }, { ar: '4/5', cls: 'about-portrait' })}
+        ${frame({ title: `${SITE.name}`, place: 'portrait', src: ABOUT.portrait }, { ar: ABOUT.portraitAr || '4/5', cls: 'about-portrait' })}
       </div>`;
 
   views.contact = () => `
@@ -256,7 +256,7 @@
     if (view === 'journal' && param) {
       html = views.post(param);
       const post = POSTS.find((p) => p.id === param);
-      views.post.cover = post ? { title: post.title, place: post.place, src: post.cover, ar: '3/2', year: postYear(post) } : null;
+      views.post.cover = post ? { title: post.title, place: post.place, src: post.cover, ar: post.ar || '3/2', year: postYear(post) } : null;
     } else if (views[view]) {
       html = views[view]();
     } else {

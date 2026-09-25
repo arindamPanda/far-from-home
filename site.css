@@ -119,7 +119,11 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 .front-lead { grid-column: span 2; min-width: 0; }
 .front-lead .kicker { margin-bottom: 16px; }
 .front-lead figure { margin: 0 0 16px; }
-.front-lead .frame-box { cursor: pointer; }
+/* The lead photograph is capped by height, not width, so a tall portrait
+   does not push the whole front page down. --ar (the frame's width/height,
+   set inline by site.js) turns that height cap into a width one, which
+   keeps the frame at its true proportions — nothing is ever cropped. */
+.front-lead .frame-box { cursor: pointer; max-width: calc(74vh * var(--ar, 1.5)); }
 .front-intro {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 26px; margin-top: 24px; font-size: 17px;
@@ -227,7 +231,7 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 .facts { display: grid; grid-template-columns: auto 1fr; gap: 12px 26px; margin: 40px 0 0; font-size: 15px; }
 .facts dt { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 3px; }
 .facts dd { margin: 0; }
-.about-portrait .frame-box { aspect-ratio: 4 / 5; cursor: default; }
+.about-portrait .frame-box { cursor: default; }
 .about-portrait { cursor: default; }
 .about-portrait:hover .frame-box { transform: none; box-shadow: var(--shadow-print), 0 0 0 1px var(--color-hairline); }
 .social { display: inline-flex; gap: 14px; align-items: center; }
