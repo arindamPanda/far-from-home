@@ -188,7 +188,7 @@
     return `
       <div class="wrap page-head">
         <article class="entry">
-          <a href="#/journal" class="back-link">&larr; All entries</a>
+          <a href="#/journal" class="back-link"><span class="back-arrow" aria-hidden="true">&larr;</span> All entries</a>
           <div class="kicker">${esc(post.date)} · ${esc(post.place)}</div>
           <h1>${esc(post.title)}</h1>
           ${frame(cover, { open: 'cover' })}
