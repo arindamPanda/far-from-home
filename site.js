@@ -192,9 +192,19 @@
           <div class="kicker">${esc(post.date)} · ${esc(post.place)}</div>
           <h1>${esc(post.title)}</h1>
           ${frame(cover, { open: 'cover' })}
-          ${body.map((t) => (t.startsWith('## ')
-            ? `<h2>${esc(t.slice(3))}</h2>`
-            : `<p>${esc(t)}</p>`)).join('')}
+          ${body.map((t) => {
+            // an object is a photograph set into the body. Its shape and its
+            // place in the lightbox both come from the archive entry with the
+            // same src, so the caption is the only thing written here.
+            if (typeof t === 'object' && t.image) {
+              const g = ALL.find((q) => q.src === t.image);
+              return frame(
+                { title: t.caption || (g && g.title) || '', place: '', src: t.image, ar: (g && g.ar) || t.ar || '3/2' },
+                { open: g ? g.index : null, caption: esc(t.caption || ''), cls: 'entry-figure' },
+              );
+            }
+            return t.startsWith('## ') ? `<h2>${esc(t.slice(3))}</h2>` : `<p>${esc(t)}</p>`;
+          }).join('')}
           ${(post.sources || []).length ? `
           <div class="entry-sources">
             <h2>Sources</h2>

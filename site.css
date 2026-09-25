@@ -224,6 +224,11 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
   font-size: 23px; letter-spacing: -0.01em; margin: 46px 0 14px;
   padding-top: 20px; border-top: 1px solid var(--color-hairline);
 }
+/* a photograph set into the running text of an entry */
+.entry-figure { margin: 30px 0 34px; }
+.entry-figure figcaption { font-size: 15px; font-style: italic; }
+.entry h2 + .entry-figure { margin-top: 22px; }
+
 /* the citation list at the foot of an entry */
 .entry-sources { margin-top: 50px; }
 .entry-sources h2 {
