@@ -214,10 +214,26 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 .entry h1 { font-size: clamp(34px, 5vw, 54px); margin: 0 0 28px; letter-spacing: -0.02em; }
 .entry figure { margin: 0 0 34px; }
 .entry p { font-size: 18px; line-height: 1.7; }
-.entry p:first-of-type::first-letter {
+/* drop cap on the body's opening paragraph only; the direct-child
+   selector keeps it off the paragraph in the sources block below */
+.entry > p:first-of-type::first-letter {
   float: left; font-size: 3.6em; line-height: 0.85; padding: 6px 8px 0 0; font-weight: 600;
 }
-.entry-nav { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 40px; font-style: italic; }
+/* section headings inside an entry: a para in content.js beginning "## " */
+.entry h2 {
+  font-size: 23px; letter-spacing: -0.01em; margin: 46px 0 14px;
+  padding-top: 20px; border-top: 1px solid var(--color-hairline);
+}
+/* the citation list at the foot of an entry */
+.entry-sources { margin-top: 50px; }
+.entry-sources h2 {
+  font-family: var(--font-label); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px;
+}
+.entry-sources p { font-size: 15px; color: var(--color-ink-soft); margin-bottom: 12px; }
+.entry-sources ul { margin: 0; padding-left: 18px; font-size: 15px; }
+.entry-sources li { margin-bottom: 6px; line-height: 1.5; }
+.entry-nav { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 44px; font-style: italic; }
 .back-link { text-decoration: none; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
 
 /* ── about / contact ────────────────────────────────────────────────────── */
@@ -304,6 +320,6 @@ body.lightbox-open { overflow: hidden; }
   .year-head::after { display: none; }
   .post-card { grid-template-columns: 1fr; gap: 18px; }
   .gallery { columns: 1; }
-  .entry p:first-of-type::first-letter { font-size: 3em; }
+  .entry > p:first-of-type::first-letter { font-size: 3em; }
   .lightbox { padding: 14px 16px 16px; }
 }

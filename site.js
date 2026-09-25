@@ -197,7 +197,17 @@
           <div class="kicker">${esc(post.date)} · ${esc(post.place)}</div>
           <h1>${esc(post.title)}</h1>
           ${frame(cover, { open: 'cover' })}
-          ${body.map((t) => `<p>${esc(t)}</p>`).join('')}
+          ${body.map((t) => (t.startsWith('## ')
+            ? `<h2>${esc(t.slice(3))}</h2>`
+            : `<p>${esc(t)}</p>`)).join('')}
+          ${(post.sources || []).length ? `
+          <div class="entry-sources">
+            <h2>Sources</h2>
+            <p>Where the facts above come from, so they can be checked.</p>
+            <ul>
+              ${post.sources.map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join('')}
+            </ul>
+          </div>` : ''}
           <div class="entry-nav">
             <a href="#/photography/${esc(postYear(post))}" class="link-plain">The frames from ${esc(postYear(post))} &rarr;</a>
             ${prev ? `<a href="#/journal/${esc(prev.id)}" class="link-plain">Newer: ${esc(prev.title)}</a>` : ''}
