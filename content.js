@@ -1,4 +1,4 @@
-/* content.js — everything the photography site shows lives in this file.
+/* content.js: everything the photography site shows lives in this file.
    Edit here; index.html / site.js never need to change for new photos or
    entries.
 
@@ -28,7 +28,7 @@ const SITE = {
   since: '2017',
   // Shown in the dateline strip under the masthead. Leave '' to hide.
   place: '',
-  // Where the "Main site" links point (the research site — a separate site
+  // Where the "Main site" links point (the research site, a separate site
   // now, so this is its full URL).
   mainSite: 'https://arindampanda.github.io/website/',
   links: {
@@ -46,14 +46,14 @@ const SITE = {
    "Frames" at the end holds the undated gallery. `ar` is the frame's
    width/height, taken from the file itself so nothing is cropped. */
 const YEARS = [
-  { label: '2026', note: 'Campus green at IIT Bombay, at the tail of the monsoon.', photos: [
+  { label: '2026', note: 'The IIT Bombay campus, August and September.', photos: [
     { title: 'A clearing in the canopy', place: 'IIT Bombay', src: 'images/2026/canopy-opening.jpg', ar: '3/4' },
     { title: 'Palms against a monsoon sky', place: 'IIT Bombay', src: 'images/2026/palms.jpg', ar: '3/4' },
     { title: 'Red leaves in the undergrowth', place: 'IIT Bombay', src: 'images/2026/red-leaves.jpg', ar: '1/1' },
     { title: 'Branches, looking up', place: 'IIT Bombay', src: 'images/2026/canopy.jpg', ar: '3/4' },
     { title: 'The road under the trees, evening', place: 'IIT Bombay', src: 'images/2026/road-evening.jpg', ar: '3/4' },
   ]},
-  { label: '2025', note: 'Bundela cenotaphs on the Betwa, and a spring meeting on the Danube.', photos: [
+  { label: '2025', note: 'Orchha and Jhansi in September, Regensburg and Munich in March.', photos: [
     { title: 'Chhatri, reflected', place: 'Orchha', src: 'images/2025/orchha-chhatri-pool.jpg', ar: '3/4' },
     { title: 'The chhatris of the Bundela kings', place: 'Orchha', src: 'images/2025/orchha-chhatris.jpg', ar: '3/4' },
     { title: 'Cenotaph above the Betwa', place: 'Orchha', src: 'images/2025/orchha-betwa.jpg', ar: '89/100' },
@@ -68,7 +68,7 @@ const YEARS = [
     { title: 'Sun through bare trees', place: 'Donaustauf', src: 'images/2025/walhalla-trees.jpg', ar: '3/4' },
     { title: 'Nymphenburg Palace', place: 'Munich', src: 'images/2025/nymphenburg.jpg', ar: '4/3' },
   ]},
-  { label: '2024', note: 'A monsoon climb to the hill fort at Raisen.', photos: [
+  { label: '2024', note: 'Raisen Fort in the monsoon.', photos: [
     { title: 'Gateway, Raisen Fort', place: 'Raisen', src: 'images/2024/raisen-gateway.jpg', ar: '3/4' },
     { title: 'The steps up', place: 'Raisen', src: 'images/2024/raisen-steps.jpg', ar: '3/4' },
     { title: 'Arch and chhatri', place: 'Raisen', src: 'images/2024/raisen-arch.jpg', ar: '3/4' },
@@ -77,7 +77,7 @@ const YEARS = [
     { title: 'Ramparts', place: 'Raisen', src: 'images/2024/raisen-ramparts.jpg', ar: '4/3' },
     { title: 'An offering on the rock', place: 'Raisen', src: 'images/2024/raisen-offering.jpg', ar: '3/4' },
   ]},
-  { label: '2023', note: 'Temple towns of Tamil Nadu, out to the end of the land at Dhanushkodi.', photos: [
+  { label: '2023', note: 'Temple towns of Tamil Nadu, and Dhanushkodi.', photos: [
     { title: 'Brihadeeswara Temple', place: 'Thanjavur', src: 'images/2023/thanjavur-vimana.jpg', ar: '3/4' },
     { title: 'The way in, Brihadeeswara Temple', place: 'Thanjavur', src: 'images/2023/thanjavur-gateway.jpg', ar: '4/3' },
     { title: 'Sri Ranganathaswamy Temple', place: 'Tiruchirappalli', src: 'images/2023/trichy-gopuram.jpg', ar: '150/139' },
@@ -94,7 +94,7 @@ const YEARS = [
     { title: 'Waterfall, first day', place: 'Hamta Pass', src: 'images/2022/hamta-waterfall.jpg', ar: '3/4' },
     { title: 'The stream below the pass', place: 'Hamta Pass', src: 'images/2022/hamta-stream.jpg', ar: '3/4' },
     { title: 'Camp, second night', place: 'Hamta Pass', src: 'images/2022/hamta-camp.jpg', ar: '4/3' },
-    { title: 'The valley opens', place: 'Hamta Pass', src: 'images/2022/hamta-valley.jpg', ar: '4/3' },
+    { title: 'The valley below the pass', place: 'Hamta Pass', src: 'images/2022/hamta-valley.jpg', ar: '4/3' },
     { title: 'Crossing the snowfield', place: 'Hamta Pass', src: 'images/2022/hamta-snowfield.jpg', ar: '4/3' },
     { title: 'A cairn on the way down', place: 'Hamta Pass', src: 'images/2022/hamta-cairn.jpg', ar: '3/4' },
     { title: 'Wildflowers', place: 'Hamta Pass', src: 'images/2022/hamta-flowers.jpg', ar: '4/3' },
@@ -118,7 +118,7 @@ const YEARS = [
     { title: 'Still water', place: 'Satpura', src: 'images/2021/churna-still-water.jpg', ar: '3/2' },
     { title: 'A tree in the dry forest', place: 'Satpura', src: 'images/2021/churna-tree.jpg', ar: '285/199' },
   ]},
-  { label: 'Frames', note: 'Various dates. Light, water and small creatures, close to home.', photos: [
+  { label: 'Frames', note: 'Various dates. Skies, water and small creatures.', photos: [
     { title: 'Nature\'s tears are the most beautiful jewelry.', place: '', src: 'images/frames/image1.jpg', ar: '4/3' },
     { title: 'A winter gem waiting for the first light.', place: '', src: 'images/frames/image2.jpg', ar: '3/4' },
     { title: 'Turning a soft golden morning into cotton clouds ablaze.', place: '', src: 'images/frames/image3.jpg', ar: '3/4' },
@@ -135,7 +135,7 @@ const YEARS = [
 const POSTS = [
   { id: 'orchha', title: 'Cenotaphs on the Betwa', date: 'September 2025', place: 'Orchha & Jhansi',
     cover: 'images/2025/orchha-chhatris.jpg', ar: '3/4',
-    excerpt: 'Rani Mahal in Jhansi on the way in; then Orchha — the Raja Mahal, the Chaturbhuj Temple seen from its terraces, and the chhatris of the Bundela kings along the river.',
+    excerpt: 'Rani Mahal in Jhansi on the way in, then Orchha: the Raja Mahal, the Chaturbhuj Temple seen from its terraces, and the chhatris of the Bundela kings along the river.',
     paras: [] },
   { id: 'regensburg', title: 'Spring meeting on the Danube', date: 'March 2025', place: 'Regensburg & Munich',
     cover: 'images/posts/regensburg.jpg', ar: '4/3',
@@ -143,11 +143,11 @@ const POSTS = [
     paras: [] },
   { id: 'raisen', title: 'Raisen Fort', date: 'August 2024', place: 'Raisen, Madhya Pradesh',
     cover: 'images/posts/raisen.jpg', ar: '3/4',
-    excerpt: 'The hill fort above Raisen in the monsoon — gateways, ramparts and wet stone steps.',
+    excerpt: 'The hill fort above Raisen in the monsoon: gateways, ramparts and wet stone steps.',
     paras: [] },
   { id: 'tamil-nadu', title: 'Temple towns of the south', date: 'December 2023', place: 'Tamil Nadu',
     cover: 'images/posts/tamil-nadu.jpg', ar: '3/4',
-    excerpt: 'Chennai, then the great temples — Thanjavur, Tiruchirappalli, Madurai, Rameswaram — out to Dhanushkodi where the Bay of Bengal meets the Indian Ocean, and back by way of Mahabalipuram.',
+    excerpt: 'Chennai, then the great temples at Thanjavur, Tiruchirappalli, Madurai and Rameswaram, out to Dhanushkodi where the Bay of Bengal meets the Indian Ocean, and back by way of Mahabalipuram.',
     paras: [] },
   { id: 'jabalpur', title: 'Marble rocks at Bhedaghat', date: 'December 2022', place: 'Jabalpur',
     cover: 'images/posts/jabalpur.jpg', ar: '4/3',
@@ -159,7 +159,7 @@ const POSTS = [
     paras: [] },
   { id: 'hamta', title: 'Four days over Hamta Pass', date: 'June 2022', place: 'Himachal Pradesh',
     cover: 'images/posts/hamta.jpg', ar: '4/3',
-    excerpt: 'The trek from the Kullu side over Hamta Pass into Lahaul — a waterfall on the first day, snowfields on the third, cairns and wildflowers on the way down.',
+    excerpt: 'The trek from the Kullu side over Hamta Pass into Lahaul: a waterfall on the first day, snowfields on the third, cairns and wildflowers on the way down.',
     paras: [] },
   { id: 'manali', title: 'Manali', date: 'June 2022', place: 'Manali, Himachal Pradesh',
     cover: 'images/posts/manali.jpg', ar: '4/3',
@@ -174,10 +174,10 @@ const POSTS = [
 const ABOUT = {
   portrait: 'images/about/portrait.jpg',
   portraitAr: '271/300',
-  lede: 'Frames from the road, arranged by the year they were made.',
+  lede: 'Travel photographs, arranged by the year they were made.',
   paras: [
-    'By day I work on the non-equilibrium physics of active matter. The rest of the time I carry a camera and photograph what is already happening — a temple gopuram against a monsoon sky, a snowfield at four thousand metres, a squirrel with a snack.',
-    'The pictures here are arranged by year rather than by theme, because that is honestly how they arrived. Some years are thin. That seems worth showing too.',
+    'I am a physicist, working on the non-equilibrium physics of active matter. I photograph on the trips I take and around wherever I am living: temples, mountains, forests, and whatever else is in front of me.',
+    'The pictures are arranged by year rather than by theme. Some years have more in them than others.',
   ],
   facts: [
     ['Since', '2017'],
@@ -186,5 +186,5 @@ const ABOUT = {
 };
 
 const CONTACT = {
-  blurb: 'For prints, permissions, or just to say a picture reminded you of somewhere.',
+  blurb: 'For prints, permissions, or anything else about the photographs here.',
 };

@@ -1,4 +1,4 @@
-/* site.js — renders the views described in content.js into <main>, routes
+/* site.js: renders the views described in content.js into <main>, routes
    between them on the URL hash, and runs the lightbox.
    Nothing here is content: edit content.js to change what the site shows. */
 (() => {
@@ -81,7 +81,7 @@
         <div class="dateline">
           <span>Vol. I</span>
           <span class="text-muted">${place}${esc(weekday)}</span>
-          <span class="text-muted">${esc(SITE.tagline)}, ${esc(SITE.since)}—</span>
+          <span class="text-muted">${esc(SITE.tagline)}, ${esc(SITE.since)} onwards</span>
           <span class="byline">Photographs by ${esc(SITE.name)}</span>
         </div>
         <div class="rule-1"></div>
@@ -95,7 +95,7 @@
             <div class="front-intro">
               <p>${esc(lead.excerpt)}</p>
               <p><a href="#/journal/${esc(lead.id)}" class="link-plain">Read the entry &rarr;</a></p>
-            </div>` : `<p class="text-muted">No journal entries yet — add one to POSTS in content.js.</p>`}
+            </div>` : `<p class="text-muted">No journal entries yet. Add one to POSTS in content.js.</p>`}
           </div>
 
           <aside class="front-aside">
@@ -167,7 +167,7 @@
   views.journal = () => `
       <div class="wrap page-head">
         <h1 class="page-title">Journal</h1>
-        <p class="text-muted page-intro">Travel notes — where the pictures came from, and what the day around them was like.</p>
+        <p class="text-muted page-intro">Notes from the trips these photographs came from.</p>
         <div class="posts">
           ${POSTS.map((post) => `
           <article class="post-card">
@@ -382,8 +382,8 @@
     if (!form) return;
     e.preventDefault();
     const f = new FormData(form);
-    const subject = encodeURIComponent(`${SITE.brand} — message from ${f.get('name')}`);
-    const body = encodeURIComponent(`${f.get('message')}\n\n— ${f.get('name')} <${f.get('email')}>`);
+    const subject = encodeURIComponent(`${SITE.brand}: message from ${f.get('name')}`);
+    const body = encodeURIComponent(`${f.get('message')}\n\nFrom ${f.get('name')} <${f.get('email')}>`);
     location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
   });
 

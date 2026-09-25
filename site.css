@@ -1,4 +1,4 @@
-/* site.css — page layout and colours for the photography site, on top of
+/* site.css: page layout and colours for the photography site, on top of
    the Broadsheet components in ds/styles.css. Light only: warm paper, warm
    ink, one plum accent shared with the main site. */
 
@@ -7,7 +7,7 @@
   --color-surface: #ede7de;            /* a shade deeper: empty frames, inputs */
   --color-text: #2a2422;               /* warm ink */
   --color-ink-soft: color-mix(in srgb, var(--color-text) 62%, transparent);
-  --color-accent: #7a4450;             /* plum — the main site's accent */
+  --color-accent: #7a4450;             /* plum, the main site's accent */
   --color-accent-600: #5e323c;
   --color-accent-700: #4a2730;
   --color-accent-100: #f0e4e6;
@@ -33,7 +33,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-/* a breath of paper grain under everything — barely there */
+/* a very faint paper grain under everything */
 body::before {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.045;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
@@ -122,7 +122,7 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 /* The lead photograph is capped by height, not width, so a tall portrait
    does not push the whole front page down. --ar (the frame's width/height,
    set inline by site.js) turns that height cap into a width one, which
-   keeps the frame at its true proportions — nothing is ever cropped. */
+   keeps the frame at its true proportions, so nothing is ever cropped. */
 .front-lead .frame-box { cursor: pointer; max-width: calc(74vh * var(--ar, 1.5)); }
 .front-intro {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
@@ -149,7 +149,7 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 
 /* ── photographs ────────────────────────────────────────────────────────── */
 /* the gallery: whole frames at their own proportions, flowing down three
-   columns — the pictures carry their own printed borders, so no cropping */
+   columns. The pictures carry their own printed borders, so no cropping. */
 .gallery { columns: 3; column-gap: 28px; }
 .gallery .frame { break-inside: avoid; margin-bottom: 30px; }
 .gallery figcaption { font-size: 16px; line-height: 1.45; font-style: italic; }
