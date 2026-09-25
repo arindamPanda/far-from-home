@@ -203,7 +203,7 @@
           ${(post.sources || []).length ? `
           <div class="entry-sources">
             <h2>Sources</h2>
-            <p>Where the facts above come from, so they can be checked.</p>
+            <p>To read more about this place, and to check anything written above, start with these.</p>
             <ul>
               ${post.sources.map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join('')}
             </ul>
