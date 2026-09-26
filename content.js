@@ -258,5 +258,5 @@ const ABOUT = {
 };
 
 const CONTACT = {
-  blurb: 'For prints, permissions, or anything else about the photographs here.',
+  blurb: 'Want to collaborate, chat about a photograph, or just say hi?',
 };
