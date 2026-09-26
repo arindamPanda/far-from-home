@@ -159,7 +159,13 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
      from the top of the row */
   align-items: center;
 }
-.gallery figcaption { font-size: 16px; line-height: 1.45; font-style: italic; }
+.gallery figcaption {
+  font-size: 16px; line-height: 1.45; font-style: italic;
+  /* two lines are reserved whether the caption needs them or not: without
+     it, a caption that wraps makes its figure taller, and centring then
+     lifts that photograph a few pixels above its neighbours in the row */
+  min-height: 2.9em;
+}
 .strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 26px; }
 .strip figcaption { font-size: 15px; }
 
