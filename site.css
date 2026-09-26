@@ -124,11 +124,12 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
    set inline by site.js) turns that height cap into a width one, which
    keeps the frame at its true proportions, so nothing is ever cropped. */
 .front-lead .frame-box { cursor: pointer; max-width: calc(74vh * var(--ar, 1.5)); }
-.front-intro {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
-  gap: 26px; margin-top: 24px; font-size: 17px;
-}
+/* The excerpt reads as one column at a comfortable measure with the link
+   under it. Splitting the two across a grid left the pill stranded at the
+   top of a half-empty second column. */
+.front-intro { margin-top: 26px; font-size: 17px; max-width: 54ch; }
 .front-intro p { margin: 0; }
+.front-intro .front-action { margin-top: 22px; }
 .front-aside { display: grid; gap: 36px; min-width: 0; }
 .front-aside h2 { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 16px; }
 .front-aside .rule-1 { margin-bottom: 10px; }

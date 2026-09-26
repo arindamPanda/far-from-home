@@ -89,7 +89,7 @@
             ${frame({ title: lead.title, place: lead.place, src: lead.cover, ar: lead.ar }, { href: `#/journal/${lead.id}` })}
             <div class="front-intro">
               <p>${esc(lead.excerpt)}</p>
-              <p><a href="#/journal/${esc(lead.id)}" class="pill-link">Continue reading <span class="pill-arrow" aria-hidden="true">&rarr;</span></a></p>
+              <p class="front-action"><a href="#/journal/${esc(lead.id)}" class="pill-link">Continue reading <span class="pill-arrow" aria-hidden="true">&rarr;</span></a></p>
             </div>` : `<p class="text-muted">No journal entries yet. Add one to POSTS in content.js.</p>`}
           </div>
 
