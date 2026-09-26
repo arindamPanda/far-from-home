@@ -91,7 +91,7 @@
               <p>${esc(lead.excerpt)}</p>
               <div class="front-action">
                 <a href="#/journal/${esc(lead.id)}" class="pill-link">Continue reading <span class="pill-arrow" aria-hidden="true">&rarr;</span></a>
-                <a href="#/journal" class="pill-link">More from the journal <span class="pill-arrow" aria-hidden="true">&rarr;</span></a>
+                <a href="#/journal" class="pill-link">Archive <span class="pill-arrow" aria-hidden="true">&rarr;</span></a>
               </div>
             </div>` : `<p class="text-muted">No journal entries yet. Add one to POSTS in content.js.</p>`}
           </div>
