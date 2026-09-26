@@ -133,9 +133,7 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 .front-aside h2 { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 16px; }
 .front-aside .rule-1 { margin-bottom: 10px; }
 .recent { display: grid; gap: 22px; }
-.recent figcaption { display: flex; flex-wrap: nowrap; align-items: baseline; gap: 10px; font-size: 15px; }
-.recent figcaption span:first-child { flex: 1; }
-.recent figcaption .text-muted { flex: none; font-family: var(--font-label); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.recent figcaption { font-size: 15px; }
 .year-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .year-tags .tag { text-decoration: none; }
 .front-motto { font-style: italic; margin: 26px 0 8px; font-size: 21px; line-height: 1.35; }

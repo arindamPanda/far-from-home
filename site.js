@@ -100,7 +100,7 @@
               <div class="recent">
                 ${recent.map((p) => frame(p, {
                   open: p.index,
-                  caption: `<span>${esc(p.title)}</span><span class="text-muted">${esc(p.year)}</span>`,
+                  caption: esc(p.title),
                 })).join('')}
               </div>
             </div>
