@@ -96,7 +96,7 @@
           <aside class="front-aside">
             <div>
               <div class="rule-1"></div>
-              <h2>Latest frames</h2>
+              <h2>Latest shots</h2>
               <div class="recent">
                 ${recent.map((p) => frame(p, {
                   open: p.index,
