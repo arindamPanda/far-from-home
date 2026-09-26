@@ -111,8 +111,6 @@
               <div class="rule-1"></div>
               <h2>By year</h2>
               <div class="year-tags">${yearTags('#/photography/')}</div>
-              <p class="front-motto">${esc(ABOUT.lede)}</p>
-              <p style="margin:0"><a href="#/about" class="arrow-link">More about this &rarr;</a></p>
             </div>
           </aside>
         </div>
