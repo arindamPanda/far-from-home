@@ -81,7 +81,7 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 .arrow-link { text-decoration: none; font-size: 15px; font-style: italic; }
 
 /* display headings: plain ink on the sheet */
-.headline { font-size: clamp(38px, 6vw, 76px); line-height: 1.0; letter-spacing: -0.025em; margin: 0 0 28px; }
+.headline { font-size: clamp(32px, 4.8vw, 60px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 26px; }
 .year-num { font-size: clamp(44px, 7vw, 80px); line-height: 0.9; margin: 0; letter-spacing: -0.02em; }
 .page-title { font-size: clamp(38px, 6vw, 64px); margin: 0 0 12px; letter-spacing: -0.02em; }
 .page-intro { max-width: 52ch; font-size: 18px; font-style: italic; }
