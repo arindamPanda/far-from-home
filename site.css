@@ -285,9 +285,6 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 .two-col .page-title { margin-bottom: 24px; }
 .two-col p { font-size: 17px; }
 .about-lede { max-width: 26ch; margin-bottom: 28px; }
-.facts { display: grid; grid-template-columns: auto 1fr; gap: 12px 26px; margin: 40px 0 0; font-size: 15px; }
-.facts dt { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 3px; }
-.facts dd { margin: 0; }
 .about-portrait .frame-box { cursor: default; }
 .about-portrait { cursor: default; }
 .about-portrait:hover .frame-box { transform: none; box-shadow: var(--shadow-print), 0 0 0 1px var(--color-hairline); }

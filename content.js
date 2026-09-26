@@ -256,10 +256,6 @@ const ABOUT = {
     'I am a physicist, working on the non-equilibrium physics of active matter. I photograph on the trips I take and around wherever I am living: temples, mountains, forests, and whatever else is in front of me.',
     'The pictures are arranged by year rather than by theme. Some years have more in them than others.',
   ],
-  facts: [
-    ['Since', '2017'],
-    ['Elsewhere', 'links'],   // rendered as the SITE.links icons
-  ],
 };
 
 const CONTACT = {
