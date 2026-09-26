@@ -235,6 +235,8 @@
           <p class="lede about-lede">${esc(ABOUT.lede)}</p>
           ${ABOUT.paras.map((t) => `<p class="measure">${esc(t)}</p>`).join('')}
           <p class="measure">Prints, permissions and conversations: <a href="#/contact">get in touch</a>.</p>
+          ${SITE.mainSite ? `
+          <p style="margin-top:30px"><a href="${esc(SITE.mainSite)}" class="pill-link">Other side of me <span class="pill-arrow" aria-hidden="true">&nearr;</span></a></p>` : ''}
         </div>
         ${frame({ title: `${SITE.name}`, place: 'portrait', src: ABOUT.portrait }, { ar: ABOUT.portraitAr || '4/5', cls: 'about-portrait' })}
       </div>`;

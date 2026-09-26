@@ -100,9 +100,6 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 .nav { padding: 22px 0 18px; gap: 26px; flex-wrap: wrap; }
 .nav-brand { margin-right: 0; text-decoration: none; letter-spacing: 0.01em; font-size: 19px; }
 .nav a { font-size: 15px; transition: color .15s ease; }
-.nav-spacer { flex: 1; }
-.nav-main { font-size: 14px !important; color: var(--color-ink-soft) !important; }
-.nav-main:hover { color: var(--color-accent) !important; }
 
 /* ── dateline (front page masthead strip) ───────────────────────────────── */
 .dateline {
