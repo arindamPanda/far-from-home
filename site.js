@@ -233,7 +233,7 @@
         <div>
           <h1 class="page-title">About</h1>
           ${ABOUT.paras.map((t) => `<p class="measure">${esc(t)}</p>`).join('')}
-          <p class="measure">Conversation: <a href="#/contact">get in touch</a>.</p>
+          <p class="measure"><a href="#/contact">get in touch</a></p>
           ${SITE.mainSite ? `
           <p style="margin-top:30px"><a href="${esc(SITE.mainSite)}" class="pill-link">Other side of me <span class="pill-arrow" aria-hidden="true">&nearr;</span></a></p>` : ''}
         </div>
