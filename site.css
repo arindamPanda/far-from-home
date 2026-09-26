@@ -146,10 +146,19 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 .front-gallery-head .arrow-link { margin-left: auto; }
 
 /* ── photographs ────────────────────────────────────────────────────────── */
-/* the gallery: whole frames at their own proportions, flowing down three
-   columns. The pictures carry their own printed borders, so no cropping. */
-.gallery { columns: 3; column-gap: 28px; }
-.gallery .frame { break-inside: avoid; margin-bottom: 30px; }
+/* The gallery reads across, not down: a grid rather than CSS columns, so the
+   pictures follow the order they are listed in, left to right along each row.
+   Column flow filled the first column top to bottom, which stacked frames one,
+   two and three under each other and broke any sequence running through them.
+   Rows are ragged at the foot because each frame keeps its own proportions. */
+.gallery {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px 28px;
+  /* short frames sit in the middle of their row, so a single landscape lines
+     up on its midpoint with the taller frames beside it rather than hanging
+     from the top of the row */
+  align-items: center;
+}
 .gallery figcaption { font-size: 16px; line-height: 1.45; font-style: italic; }
 .strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 26px; }
 .strip figcaption { font-size: 15px; }
@@ -327,7 +336,7 @@ body.lightbox-open { overflow: hidden; }
 
 /* ── smaller screens ────────────────────────────────────────────────────── */
 @media (max-width: 960px) {
-  .gallery { columns: 2; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 720px) {
@@ -341,7 +350,7 @@ body.lightbox-open { overflow: hidden; }
   .year-head { flex-wrap: wrap; gap: 8px 16px; }
   .year-head::after { display: none; }
   .post-card { grid-template-columns: 1fr; gap: 18px; }
-  .gallery { columns: 1; }
+  .gallery { grid-template-columns: minmax(0, 1fr); }
   .entry > p:first-of-type::first-letter { font-size: 3em; }
   .lightbox { padding: 14px 16px 16px; }
 }
