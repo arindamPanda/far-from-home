@@ -120,7 +120,7 @@ const YEARS = [
     { title: 'Still water', place: 'Satpura', src: 'images/2021/churna-still-water.jpg', ar: '3/2' },
     { title: 'A tree in the dry forest', place: 'Satpura', src: 'images/2021/churna-tree.jpg', ar: '285/199' },
   ]},
-  { label: 'Plates', note: 'Various dates. Skies, water and small creatures.', photos: [
+  { label: 'Plates', note: 'Through the turning year · Skies, water, and small creatures.', photos: [
     { title: 'Nature\'s tears are the most beautiful jewelry.', place: '', src: 'images/frames/image1.jpg', ar: '4/3' },
     { title: 'A winter gem waiting for the first light.', place: '', src: 'images/frames/image2.jpg', ar: '3/4' },
     { title: 'Turning a soft golden morning into cotton clouds ablaze.', place: '', src: 'images/frames/image3.jpg', ar: '3/4' },
