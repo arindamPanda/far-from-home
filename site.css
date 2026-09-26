@@ -75,7 +75,6 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 }
 .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
 .text-muted { color: var(--color-ink-soft); }
-.lede { font-style: italic; font-size: 24px; line-height: 1.35; }
 .measure { max-width: 56ch; }
 .link-plain { text-decoration: none; }
 .arrow-link { text-decoration: none; font-size: 15px; font-style: italic; }
@@ -281,7 +280,6 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 }
 .two-col .page-title { margin-bottom: 24px; }
 .two-col p { font-size: 17px; }
-.about-lede { max-width: 26ch; margin-bottom: 28px; }
 .about-portrait .frame-box { cursor: default; }
 .about-portrait { cursor: default; }
 .about-portrait:hover .frame-box { transform: none; box-shadow: var(--shadow-print), 0 0 0 1px var(--color-hairline); }

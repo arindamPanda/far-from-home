@@ -251,7 +251,6 @@ const POSTS = [
 const ABOUT = {
   portrait: 'images/about/portrait.jpg',
   portraitAr: '271/300',
-  lede: 'Travel photographs, arranged by the year they were made.',
   paras: [
     'I am a physics researcher driven by curiosity and a passion for learning, working at the intersection of science, strategy, and creativity. Outside of research I am a sports enthusiast, and I am motivated by great athletes who show discipline, resilience, and determination.',
     'Beyond science and sports, I love exploring new places. Travelling gives me fresh perspectives, while photography allows me to capture the quiet, meaningful moments of everyday life. I value hard work and continuous growth, always striving for a life that balances ambition, exploration, and joy.',
