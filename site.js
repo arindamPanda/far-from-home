@@ -18,6 +18,10 @@
     ALL.push({ ...p, year: y.label, index: ALL.length });
   }));
 
+  // The one group in YEARS that is not a year. Its name is set in content.js,
+  // so renaming it there renames it everywhere it appears.
+  const UNDATED = (YEARS.find((y) => !/^\d{4}$/.test(y.label)) || {}).label || '';
+
   const ratioValue = (ar) => {
     const m = /^\s*(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)\s*$/.exec(ar || '');
     return m ? (Number(m[1]) / Number(m[2])) : 1.5;
@@ -64,13 +68,13 @@
   views.home = () => {
     const lead = POSTS[0];
     const recent = ALL.slice(0, 2);
-    // Under the fold: the whole "Frames" gallery with its captions (the
+    // Under the fold: the whole undated gallery with its captions (the
     // gallery that used to sit on the main site). Without such a group,
-    // four frames spread across the archive stand in.
-    const gallery = YEARS.find((y) => y.label === 'Frames');
+    // four pictures spread across the archive stand in.
+    const gallery = UNDATED ? YEARS.find((y) => y.label === UNDATED) : null;
     const stride = Math.max(1, Math.floor(ALL.length / 4));
     const strip = gallery
-      ? ALL.filter((p) => p.year === 'Frames')
+      ? ALL.filter((p) => p.year === UNDATED)
       : [0, 1, 2, 3].map((i) => ALL[Math.min(ALL.length - 1, i * stride + 2)]).filter(Boolean);
     return `
       <div class="wrap">
@@ -118,9 +122,9 @@
         <div class="rule-1 front-strip-rule"></div>
         ${gallery ? `
         <div class="front-gallery-head">
-          <h2>Frames</h2>
+          <h2>${esc(UNDATED)}</h2>
           <span class="text-muted">${esc(gallery.note)}</span>
-          <a href="#/photography/Frames" class="arrow-link">All frames &rarr;</a>
+          <a href="#/photography/${esc(UNDATED)}" class="arrow-link">All ${esc(UNDATED.toLowerCase())} &rarr;</a>
         </div>
         <div class="gallery">
           ${strip.map((p) => frame(p, {

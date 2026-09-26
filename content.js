@@ -40,7 +40,7 @@ const SITE = {
 
 /* Photographs, newest group first. `note` is the line beside the big
    heading on the Photography page. A group's label need not be a year:
-   "Frames" at the end holds the undated gallery. `ar` is the frame's
+   "Plates" at the end holds the undated gallery. `ar` is the frame's
    width/height, taken from the file itself so nothing is cropped. */
 const YEARS = [
   { label: '2026', note: 'The IIT Bombay campus, August and September.', photos: [
@@ -120,7 +120,7 @@ const YEARS = [
     { title: 'Still water', place: 'Satpura', src: 'images/2021/churna-still-water.jpg', ar: '3/2' },
     { title: 'A tree in the dry forest', place: 'Satpura', src: 'images/2021/churna-tree.jpg', ar: '285/199' },
   ]},
-  { label: 'Frames', note: 'Various dates. Skies, water and small creatures.', photos: [
+  { label: 'Plates', note: 'Various dates. Skies, water and small creatures.', photos: [
     { title: 'Nature\'s tears are the most beautiful jewelry.', place: '', src: 'images/frames/image1.jpg', ar: '4/3' },
     { title: 'A winter gem waiting for the first light.', place: '', src: 'images/frames/image2.jpg', ar: '3/4' },
     { title: 'Turning a soft golden morning into cotton clouds ablaze.', place: '', src: 'images/frames/image3.jpg', ar: '3/4' },
