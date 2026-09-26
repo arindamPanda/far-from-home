@@ -44,8 +44,8 @@ const SITE = {
    width/height, taken from the file itself so nothing is cropped. */
 const YEARS = [
   { label: '2026', note: 'The IIT Bombay campus, August and September.', photos: [
-    { title: 'A clearing in the canopy', place: 'IIT Bombay', src: 'images/2026/canopy-opening.jpg', ar: '3/4' },
-    { title: 'Palms against a monsoon sky', place: 'IIT Bombay', src: 'images/2026/palms.jpg', ar: '3/4' },
+    { title: 'A quiet tear in the green ceiling', place: 'IIT Bombay', src: 'images/2026/canopy-opening.jpg', ar: '3/4' },
+    { title: 'Coconut trees etched against a restless sky', place: 'IIT Bombay', src: 'images/2026/coconut-trees.jpg', ar: '3/4' },
     { title: 'Red leaves in the undergrowth', place: 'IIT Bombay', src: 'images/2026/red-leaves.jpg', ar: '1/1' },
     { title: 'Branches, looking up', place: 'IIT Bombay', src: 'images/2026/canopy.jpg', ar: '3/4' },
     { title: 'The road under the trees, evening', place: 'IIT Bombay', src: 'images/2026/road-evening.jpg', ar: '3/4' },
