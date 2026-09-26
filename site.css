@@ -66,7 +66,7 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 
 /* small uppercase labels are set in the sans, for crispness at that size */
 .kicker, .label, .dateline, .footer-row, .front-aside h2, .front-gallery-head h2,
-.lightbox-head, .slot-label, .back-link, .tag {
+.lightbox-head, .slot-label, .back-link, .pill-link, .tag {
   font-family: var(--font-label); font-weight: 500;
 }
 .kicker {
@@ -237,9 +237,10 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 .entry-sources ul { margin: 0; padding-left: 18px; font-size: 15px; }
 .entry-sources li { margin-bottom: 6px; line-height: 1.5; }
 .entry-nav { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 44px; font-style: italic; }
-/* "All entries" is the only way back out of an entry, so it is a pill like
-   the year tags rather than a line of small caps that reads as body text */
-.back-link {
+/* The two ways in and out of an entry, "Continue reading" and "All entries",
+   are pills like the year tags, so they read as controls rather than as more
+   lines of text. Plain italic arrow links stay for secondary navigation. */
+.back-link, .pill-link {
   display: inline-flex; align-items: center; gap: 9px;
   font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--color-accent); text-decoration: none;
@@ -247,13 +248,14 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
   padding: 9px 18px;
   transition: background-color .15s ease, color .15s ease, border-color .15s ease;
 }
-.back-link:hover {
+.back-link:hover, .pill-link:hover {
   background: var(--color-accent); border-color: var(--color-accent); color: var(--color-bg);
 }
-.back-arrow { display: inline-block; transition: transform .15s ease; }
+.back-arrow, .pill-arrow { display: inline-block; transition: transform .15s ease; }
 .back-link:hover .back-arrow { transform: translateX(-3px); }
+.pill-link:hover .pill-arrow { transform: translateX(3px); }
 @media (prefers-reduced-motion: reduce) {
-  .back-link:hover .back-arrow { transform: none; }
+  .back-link:hover .back-arrow, .pill-link:hover .pill-arrow { transform: none; }
 }
 
 /* ── about / contact ────────────────────────────────────────────────────── */

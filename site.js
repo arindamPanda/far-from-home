@@ -89,7 +89,7 @@
             ${frame({ title: lead.title, place: lead.place, src: lead.cover, ar: lead.ar }, { href: `#/journal/${lead.id}` })}
             <div class="front-intro">
               <p>${esc(lead.excerpt)}</p>
-              <p><a href="#/journal/${esc(lead.id)}" class="link-plain">Continue reading &rarr;</a></p>
+              <p><a href="#/journal/${esc(lead.id)}" class="pill-link">Continue reading <span class="pill-arrow" aria-hidden="true">&rarr;</span></a></p>
             </div>` : `<p class="text-muted">No journal entries yet. Add one to POSTS in content.js.</p>`}
           </div>
 
@@ -171,7 +171,7 @@
               <div class="kicker">${esc(post.date)} · ${esc(post.place)}</div>
               <h2><a href="#/journal/${esc(post.id)}">${esc(post.title)}</a></h2>
               <p class="measure">${esc(post.excerpt)}</p>
-              <a href="#/journal/${esc(post.id)}" class="arrow-link">Continue reading &rarr;</a>
+              <a href="#/journal/${esc(post.id)}" class="pill-link">Continue reading <span class="pill-arrow" aria-hidden="true">&rarr;</span></a>
             </div>
           </article>`).join('')}
         </div>
