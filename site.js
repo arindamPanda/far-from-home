@@ -246,7 +246,6 @@
           <h1 class="page-title" style="margin-bottom:18px">Contact</h1>
           <p style="max-width:48ch">${esc(CONTACT.blurb)}</p>
           ${SITE.email ? `<p style="font-size:19px;margin-top:26px"><a href="mailto:${esc(SITE.email)}">${esc(SITE.email)}</a></p>` : ''}
-          <p class="text-muted" style="font-size:14px;display:flex;gap:12px;align-items:center">Elsewhere ${social()}</p>
         </div>
         ${SITE.email ? `
         <form class="contact-form" id="contact-form">
