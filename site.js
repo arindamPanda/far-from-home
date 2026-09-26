@@ -84,7 +84,7 @@
         <div class="front">
           <div class="front-lead">
             ${lead ? `
-            <div class="kicker">Lead entry · ${esc(lead.place)}, ${esc(lead.date)}</div>
+            <div class="kicker">Recent entry · ${esc(lead.place)}, ${esc(lead.date)}</div>
             <h1 class="headline">${esc(lead.title)}</h1>
             ${frame({ title: lead.title, place: lead.place, src: lead.cover, ar: lead.ar }, { href: `#/journal/${lead.id}` })}
             <div class="front-intro">
