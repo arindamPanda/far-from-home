@@ -129,7 +129,11 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
    top of a half-empty second column. */
 .front-intro { margin-top: 26px; font-size: 17px; max-width: 54ch; }
 .front-intro p { margin: 0; }
-.front-intro .front-action { margin-top: 22px; }
+/* the two ways on from the lead: into this entry, or out to all of them */
+.front-intro .front-action {
+  margin-top: 22px; display: flex; flex-direction: column;
+  align-items: flex-start; gap: 12px;
+}
 .front-aside { display: grid; gap: 36px; min-width: 0; }
 .front-aside h2 { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 16px; }
 .front-aside .rule-1 { margin-bottom: 10px; }
