@@ -221,6 +221,32 @@ p, figcaption, li { text-wrap: pretty; }
 .frame figcaption { font-size: 15px; margin: 0; color: inherit; display: flex; flex-wrap: wrap; gap: 4px 14px; }
 .frame figcaption .text-muted { color: var(--color-ink-soft); font-style: normal; }
 
+/* The year tags on the Photography page stay pinned to the top of the
+   window while the years scroll under them. The paper is slightly see-
+   through and blurred there, so pictures passing beneath soften rather
+   than vanish, and the tag for the year in view is filled in. */
+.year-bar {
+  position: sticky; top: 0; z-index: 20;
+  margin-top: 26px; padding: 12px 0;
+  background: var(--color-bg);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .year-bar {
+    background: color-mix(in srgb, var(--color-bg) 86%, transparent);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  }
+}
+.year-bar.is-stuck {
+  border-bottom-color: var(--color-hairline);
+  box-shadow: 0 12px 20px -18px rgba(42, 36, 34, 0.4);
+}
+.year-tags .tag.is-current {
+  background: var(--color-accent); border-color: var(--color-accent); color: var(--color-bg);
+}
+.year-bar + .year { padding-top: 46px; }
+
 .year { padding: 72px 0 0; }
 .year-head { display: flex; align-items: baseline; gap: 22px; margin-bottom: 30px; }
 .year-head .text-muted { font-size: 17px; font-style: italic; }

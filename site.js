@@ -46,7 +46,7 @@
   };
 
   const yearTags = (prefix) => YEARS.map((y) =>
-    `<a href="${prefix}${esc(y.label)}" class="tag tag-outline">${esc(y.label)}</a>`
+    `<a href="${prefix}${esc(y.label)}" class="tag tag-outline" data-year="${esc(y.label)}">${esc(y.label)}</a>`
   ).join('');
 
   const ICONS = {
@@ -145,7 +145,9 @@
       <div class="wrap page-head">
         <h1 class="page-title">Photography</h1>
         <p class="text-muted page-intro">Everything, by the year it was made. Click a frame to see it whole.</p>
-        <div class="year-tags" style="margin-top:26px">${yearTags('#/photography/')}</div>
+      </div>
+      <div class="year-bar" id="year-bar">
+        <div class="wrap year-tags">${yearTags('#/photography/')}</div>
       </div>
       ${YEARS.map((y) => `
       <section class="year" id="year-${esc(y.label)}">
@@ -265,12 +267,54 @@
     return { view: view || 'home', param: decodeURIComponent(param) };
   };
 
+  // Jump without the smooth scrolling set on <html>: a new page should
+  // simply start where it starts, not glide there from the last one.
+  const jumpTo = (y) => {
+    const root = document.documentElement;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, y);
+    root.style.scrollBehavior = '';
+  };
+
+  // Bring a year's heading up to just under the pinned year bar.
+  const scrollToYear = (label, smooth) => {
+    const section = label && document.getElementById('year-' + label);
+    const head = section && section.querySelector('.year-head');
+    const bar = document.getElementById('year-bar');
+    const y = head ? head.getBoundingClientRect().top + window.scrollY - (bar ? bar.offsetHeight : 0) - 28 : 0;
+    if (smooth) window.scrollTo({ top: y, behavior: 'smooth' });
+    else jumpTo(y);
+  };
+
+  // On the Photography page: pin the year bar's shadow once it sticks, and
+  // fill in the tag of the year being looked at.
+  const markYear = () => {
+    const bar = document.getElementById('year-bar');
+    if (!bar) return;
+    const box = bar.getBoundingClientRect();
+    bar.classList.toggle('is-stuck', box.top <= 0 && window.scrollY > 0);
+    const line = box.bottom + window.innerHeight * 0.3;
+    const years = [...document.querySelectorAll('.year')];
+    let on = '';
+    years.forEach((s) => { if (s.getBoundingClientRect().top <= line) on = s.id.slice(5); });
+    const atFoot = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (atFoot && years.length) on = years[years.length - 1].id.slice(5);
+    bar.querySelectorAll('.tag').forEach((t) => t.classList.toggle('is-current', t.dataset.year === on));
+  };
+
   const render = () => {
     const { view, param } = parse();
     closeLightbox();
 
+    // Moving between years on the Photography page only scrolls: the page
+    // is already built, so it is not rebuilt.
+    if (view === 'photography' && current.view === 'photography') {
+      current = { view, param };
+      scrollToYear(param, true);
+      return;
+    }
+
     let html;
-    let scrollTo = 0;
     if (view === 'journal' && param) {
       html = views.post(param);
       const post = POSTS.find((p) => p.id === param);
@@ -297,20 +341,35 @@
       else a.removeAttribute('aria-current');
     });
 
-    const same = current.view === view;
     current = { view, param };
-    if (view === 'photography' && param) {
-      const el = document.getElementById('year-' + param);
-      if (el) {
-        scrollTo = el.getBoundingClientRect().top + window.scrollY - 20;
-        window.scrollTo({ top: scrollTo, behavior: same ? 'smooth' : 'auto' });
-        return;
-      }
-    }
-    window.scrollTo(0, 0);
+    if (view === 'photography' && param) scrollToYear(param, false);
+    else jumpTo(0);
+    markYear();
   };
 
   window.addEventListener('hashchange', render);
+
+  // A tag in the year bar scrolls to its year even when the address already
+  // names that year (clicking 2024 again after scrolling away from it).
+  app.addEventListener('click', (e) => {
+    const tag = e.target.closest('.year-bar .tag');
+    if (!tag) return;
+    e.preventDefault();
+    const href = tag.getAttribute('href');
+    if (location.hash !== href) history.pushState(null, '', href);
+    current.param = tag.dataset.year;
+    scrollToYear(tag.dataset.year, true);
+  });
+
+  let ticking = false;
+  const onScroll = () => {
+    ticking = false;
+    markYear();
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  window.addEventListener('resize', markYear);
 
   // A photograph is shown once it has loaded (.is-loaded in site.css).
   // Load events do not bubble, so this listens in the capture phase.
