@@ -183,6 +183,19 @@
         </div>
       </div>`;
 
+  // The neighbouring entries at the foot of an entry: the cover at its own
+  // proportions (a fixed height, so the width follows and nothing is cut),
+  // with the title beside it.
+  const moreCard = (post, label, cls) => `
+            <a href="#/journal/${esc(post.id)}" class="more-card ${cls}">
+              <img src="${esc(post.cover)}" alt="" loading="lazy" decoding="async" style="aspect-ratio:${esc(post.ar || '3/2')}">
+              <span class="more-text">
+                <span class="kicker">${label}</span>
+                <span class="more-title">${esc(post.title)}</span>
+                <span class="more-place text-muted">${esc(post.place)}</span>
+              </span>
+            </a>`;
+
   views.post = (id) => {
     const i = POSTS.findIndex((p) => p.id === id);
     if (i < 0) return views.journal();
@@ -219,11 +232,13 @@
               ${post.sources.map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join('')}
             </ul>
           </div>` : ''}
-          <div class="entry-nav">
-            <a href="#/photography/${esc(postYear(post))}" class="link-plain">The frames from ${esc(postYear(post))} &rarr;</a>
-            ${prev ? `<a href="#/journal/${esc(prev.id)}" class="link-plain">Newer: ${esc(prev.title)}</a>` : ''}
-            ${next ? `<a href="#/journal/${esc(next.id)}" class="link-plain">Older: ${esc(next.title)}</a>` : ''}
-          </div>
+          <p class="entry-frames">
+            <a href="#/photography/${esc(postYear(post))}" class="pill-link">The frames from ${esc(postYear(post))} <span class="pill-arrow" aria-hidden="true">&rarr;</span></a>
+          </p>
+          <nav class="entry-more" aria-label="More from the journal">
+            ${prev ? moreCard(prev, 'Newer entry', 'more-newer') : ''}
+            ${next ? moreCard(next, 'Older entry', 'more-older') : ''}
+          </nav>
         </article>
       </div>`;
   };
