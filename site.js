@@ -422,7 +422,14 @@
   const showLightbox = () => {
     const p = lbList[lbIndex];
     lbBox.classList.remove('is-missing');
+    lbImg.classList.remove('is-loaded');
     lbImg.src = p.src;
+    if (lbImg.complete && lbImg.naturalWidth) lbImg.classList.add('is-loaded');
+    // fetch the photographs either side, so stepping to them is immediate
+    [lbIndex - 1, lbIndex + 1].forEach((i) => {
+      const q = lbList[(i + lbList.length) % lbList.length];
+      if (q && q !== p) new Image().src = q.src;
+    });
     lbImg.alt = p.title;
     lbTitle.textContent = p.title;
     lbMeta.textContent = [p.place, p.year].filter(Boolean).join(' · ');
@@ -466,15 +473,26 @@
     else if (e.key === 'ArrowLeft') stepLightbox(-1);
   });
 
-  // Swipe between frames on touch screens.
+  // Swipe between frames on touch screens, or click or tap the left or
+  // right third of the stage to step back or on.
   let swipeX = null;
   const stage = document.getElementById('lb-stage');
+  const sideOf = (e) => {
+    if (lbList.length < 2) return '';
+    const r = stage.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width;
+    return x < 1 / 3 ? 'prev' : x > 2 / 3 ? 'next' : '';
+  };
+  stage.addEventListener('pointermove', (e) => { stage.dataset.side = sideOf(e); });
+  stage.addEventListener('pointerleave', () => { stage.dataset.side = ''; });
   stage.addEventListener('pointerdown', (e) => { swipeX = e.clientX; });
   stage.addEventListener('pointerup', (e) => {
     if (swipeX === null) return;
     const dx = e.clientX - swipeX;
     swipeX = null;
-    if (Math.abs(dx) > 40) stepLightbox(dx < 0 ? 1 : -1);
+    if (Math.abs(dx) > 40) { stepLightbox(dx < 0 ? 1 : -1); return; }
+    const side = sideOf(e);
+    if (side) stepLightbox(side === 'next' ? 1 : -1);
   });
 
   const openFrom = (el) => {
