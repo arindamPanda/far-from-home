@@ -86,6 +86,13 @@ a:hover { color: var(--color-accent-600); text-decoration-color: currentColor; }
 .page-intro { max-width: 52ch; font-size: 18px; font-style: italic; }
 .page-head { padding-top: 36px; }
 
+/* Headings break into lines of even length ("The chhatris / of Orchha"
+   rather than "The chhatris of / Orchha"), and paragraphs and captions
+   avoid leaving one short word alone on their last line. Browsers that
+   do not know these properties simply wrap as before. */
+h1, h2, .headline { text-wrap: balance; }
+p, figcaption, li { text-wrap: pretty; }
+
 /* tags (year links): quiet outline, fills on hover */
 .tag {
   font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
