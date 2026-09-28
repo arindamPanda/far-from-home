@@ -281,6 +281,14 @@
       html = views.home();
     }
     app.innerHTML = html;
+    // pictures already in the browser's cache have loaded before the
+    // listener below could see them
+    app.querySelectorAll('img').forEach((img) => {
+      if (img.complete && img.naturalWidth) img.classList.add('is-loaded');
+    });
+    app.classList.remove('is-entering');
+    void app.offsetWidth; // restart the fade on every page change
+    app.classList.add('is-entering');
 
     document.querySelectorAll('.nav [data-route]').forEach((a) => {
       const r = a.dataset.route;
@@ -303,6 +311,12 @@
   };
 
   window.addEventListener('hashchange', render);
+
+  // A photograph is shown once it has loaded (.is-loaded in site.css).
+  // Load events do not bubble, so this listens in the capture phase.
+  document.addEventListener('load', (e) => {
+    if (e.target.tagName === 'IMG') e.target.classList.add('is-loaded');
+  }, true);
 
   /* ── lightbox ────────────────────────────────────────────────────────── */
   const lb = document.getElementById('lightbox');

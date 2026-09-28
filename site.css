@@ -196,6 +196,17 @@ p, figcaption, li { text-wrap: pretty; }
 .frame-box img {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
 }
+/* A photograph fades up once it has loaded instead of snapping in over the
+   empty frame, and each page eases in when you arrive on it. site.js adds
+   .is-loaded and .is-entering. */
+.page .frame-box img { opacity: 0; transition: opacity .5s ease; }
+.page .frame-box img.is-loaded { opacity: 1; }
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+.page.is-entering { animation: pageIn .35s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .page .frame-box img { transition: none; }
+  .page.is-entering { animation: none; }
+}
 /* A photograph that has not been dropped into images/ yet: the frame keeps
    its place and names what belongs there. */
 .slot-label {
