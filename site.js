@@ -355,6 +355,13 @@
       else a.removeAttribute('aria-current');
     });
 
+    // the browser tab names the page: "Journal · Far From Home", or an
+    // entry's title, so tabs and bookmarks can be told apart
+    const names = { about: 'About', photography: 'Photography', journal: 'Journal', contact: 'Contact' };
+    const entry = view === 'journal' && param && POSTS.find((p) => p.id === param);
+    const page = entry ? entry.title : names[view];
+    document.title = page ? `${page} · ${SITE.brand}` : `${SITE.brand} · ${SITE.name}`;
+
     current = { view, param };
     if (view === 'photography' && param) scrollToYear(param, false);
     else jumpTo(0);
