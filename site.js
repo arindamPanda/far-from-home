@@ -61,7 +61,6 @@
     .join('') + `</span>`;
 
   const postYear = (post) => (post.date.match(/\d{4}/) || [''])[0];
-
   /* ── views ───────────────────────────────────────────────────────────── */
   const views = {};
 
@@ -344,7 +343,7 @@
     current = { view, param };
     if (view === 'photography' && param) scrollToYear(param, false);
     else jumpTo(0);
-    markYear();
+    onScroll();
   };
 
   window.addEventListener('hashchange', render);
@@ -361,15 +360,31 @@
     scrollToYear(tag.dataset.year, true);
   });
 
+  // A thin plum line along the top of the window that fills as you read
+  // down a journal entry.
+  const progress = document.createElement('div');
+  progress.className = 'read-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(progress);
+  const markProgress = () => {
+    const entry = current.view === 'journal' && current.param ? app.querySelector('.entry') : null;
+    progress.classList.toggle('is-on', !!entry);
+    if (!entry) return;
+    const box = entry.getBoundingClientRect();
+    const run = Math.max(1, box.height - window.innerHeight);
+    progress.style.transform = `scaleX(${Math.min(1, Math.max(0, -box.top / run))})`;
+  };
+
   let ticking = false;
   const onScroll = () => {
     ticking = false;
     markYear();
+    markProgress();
   };
   window.addEventListener('scroll', () => {
     if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
   }, { passive: true });
-  window.addEventListener('resize', markYear);
+  window.addEventListener('resize', onScroll);
 
   // A photograph is shown once it has loaded (.is-loaded in site.css).
   // Load events do not bubble, so this listens in the capture phase.
