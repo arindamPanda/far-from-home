@@ -370,6 +370,12 @@ p, figcaption, li { text-wrap: pretty; }
 .social svg { width: 18px; height: 18px; fill: currentColor; }
 .contact-form { display: grid; gap: 16px; max-width: 420px; }
 .contact-form .btn { justify-self: start; }
+.contact-form .btn:disabled { opacity: .6; cursor: wait; }
+/* the spam trap: off screen for people, still in the form for bots */
+.form-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-status { margin: 0; min-height: 1.5em; font-size: 15px; color: var(--color-ink-soft); }
+.form-status.is-ok { color: var(--color-accent); }
+.form-status.is-error { color: #a3261e; }
 
 /* ── footer ─────────────────────────────────────────────────────────────── */
 .footer { margin-top: 64px; padding-bottom: 44px; }

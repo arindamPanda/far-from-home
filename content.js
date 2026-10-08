@@ -259,4 +259,8 @@ const ABOUT = {
 
 const CONTACT = {
   blurb: 'Get in touch',
+  // Where the Contact form sends messages: FormSubmit forwards them to the
+  // inbox behind this code (the address itself is not in the site). The
+  // research site's form uses the same one. Leave it '' to hide the form.
+  form: 'https://formsubmit.co/ajax/67d0ffd5ade8a1d73419d135899b6009',
 };

@@ -264,12 +264,14 @@
           ${SITE.email ? `<p style="font-size:19px;margin-top:26px"><a href="mailto:${esc(SITE.email)}">${esc(SITE.email)}</a></p>` : ''}
           <p style="display:flex;gap:16px;align-items:center;margin-top:22px">${social()}</p>
         </div>
-        ${SITE.email ? `
+        ${CONTACT.form || SITE.email ? `
         <form class="contact-form" id="contact-form">
-          <div class="field"><label for="c-name">Name</label><input class="input" id="c-name" name="name" placeholder="Your name" required></div>
-          <div class="field"><label for="c-mail">Email</label><input class="input" id="c-mail" name="email" type="email" placeholder="you@somewhere.com" required></div>
-          <div class="field"><label for="c-msg">Message</label><textarea class="input" id="c-msg" name="message" placeholder="Which photograph, and what you'd like" required></textarea></div>
+          <div class="field"><label for="c-name">Name</label><input class="input" id="c-name" name="name" placeholder="Your name" autocomplete="name" required></div>
+          <div class="field"><label for="c-mail">Email</label><input class="input" id="c-mail" name="email" type="email" placeholder="you@somewhere.com" autocomplete="email" required></div>
+          <div class="field"><label for="c-msg">Message</label><textarea class="input" id="c-msg" name="message" placeholder="Your message" required></textarea></div>
+          <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button class="btn btn-primary" type="submit">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>` : ''}
       </div>`;
 
@@ -522,15 +524,46 @@
     openFrom(el);
   });
 
-  /* ── contact form → the visitor's mail client ────────────────────────── */
-  app.addEventListener('submit', (e) => {
+  /* ── contact form → FormSubmit (or the visitor's mail client) ────────── */
+  // With CONTACT.form set, the message is posted to FormSubmit, which emails
+  // it on; the visitor stays on the page and is told whether it went. With
+  // only SITE.email set, the visitor's own mail app opens instead.
+  app.addEventListener('submit', async (e) => {
     const form = e.target.closest('#contact-form');
     if (!form) return;
     e.preventDefault();
     const f = new FormData(form);
-    const subject = encodeURIComponent(`${SITE.brand}: message from ${f.get('name')}`);
-    const body = encodeURIComponent(`${f.get('message')}\n\nFrom ${f.get('name')} <${f.get('email')}>`);
-    location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
+    const subject = `${SITE.brand}: message from ${f.get('name')}`;
+    if (!CONTACT.form) {
+      const body = `${f.get('message')}\n\nFrom ${f.get('name')} <${f.get('email')}>`;
+      location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      return;
+    }
+    const status = form.querySelector('.form-status');
+    const button = form.querySelector('button[type="submit"]');
+    const say = (text, kind) => {
+      status.textContent = text;
+      status.className = 'form-status' + (kind ? ` is-${kind}` : '');
+    };
+    const data = Object.fromEntries(f);
+    Object.assign(data, { _subject: subject, _replyto: data.email, _template: 'table', _captcha: 'false' });
+    button.disabled = true;
+    say('Sending…');
+    try {
+      const res = await fetch(CONTACT.form, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const reply = await res.json();
+      if (!res.ok || String(reply.success) !== 'true') throw new Error(reply.message);
+      form.reset();
+      say('Thank you, your message has been sent.', 'ok');
+    } catch (err) {
+      say('Sorry, the message could not be sent. Please try again in a moment.', 'error');
+    } finally {
+      button.disabled = false;
+    }
   });
 
   /* ── boot ────────────────────────────────────────────────────────────── */
